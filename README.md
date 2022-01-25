@@ -1,4 +1,4 @@
-# derivative-management-ui
+# Covid-19 Coding Demonstrator
 
 ## Project setup
 ```
