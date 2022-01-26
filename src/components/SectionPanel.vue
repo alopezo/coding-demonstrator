@@ -10,9 +10,7 @@
       <v-row v-for="(binding, name) in bindings" :key="name" class="mb-4">
         <v-col cols="6" md="6">
           <h4>{{ binding.title }}</h4>
-          <p class="body-1 font-weight-light">
-            {{ binding.note }}
-          </p>
+          <p class="body-1 font-weight-light" v-html="addLinks(binding.note)"></p>
         </v-col>
         <v-col cols="6" md="6" class="text-right">
           <v-chip class="text-capitalize" color="info">{{ binding.type }}</v-chip>
@@ -49,6 +47,21 @@
       search: null,
       loading: false,
       items: [],
-    })
+    }),
+    methods: {
+      addLinks(text) {
+        if (text) {
+          var references = text.match(/(\d*\s\|.*?\|)/gm)
+          if (references) {
+            for (const reference of references) {
+              var code = reference.match(/(\d*)/)[0]
+              var link = '<a href="http://snomed.info/sct/' + code + '" target="_blank">' + reference + '</a>'
+              text = text.replace(reference, link)
+            }
+          }
+        }
+        return text;
+      }
+    }
   }
 </script>

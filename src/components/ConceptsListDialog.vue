@@ -56,7 +56,7 @@
             </v-card-text>
             <v-divider></v-divider>
 
-            <v-card-actions>
+            <!-- <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="success" @click="dialog = false">
                 <v-icon right dark>mdi-cloud-download</v-icon> RF2 
@@ -70,7 +70,7 @@
             <v-btn color="primary" @click="dialog = false" class="ml-8">
                 Close
             </v-btn>
-            </v-card-actions>
+            </v-card-actions> -->
         </v-card>
     </v-dialog>
 </template>
