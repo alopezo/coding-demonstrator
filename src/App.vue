@@ -220,12 +220,111 @@ export default {
           note: 'The first step in delivering comprehensive care is to undertake a clinical assessment. Please note that all published concepts referred to on this page are included in SNOMED International\'s Global Patient Set (GPS), which is available to be used internationally under the Creative Commons Attribution 4.0 International License. Please refer to http://snomed.org/covid-19 for more information.',
           bindings: {
             'CV19-ASS-Symptoms' : {
-              title: 'Biological Sex',
+              title: 'Symptoms',
               type: 'dropdown',
-              ecl: `<  429019009 |Finding related to biological sex (finding)|  
-                    MINUS <<  302081005 |Finding of sex of baby (finding)|`,
+              ecl: `21522001 |Abdominal pain (finding)| OR 84387000 |Asymptomatic (finding)| OR 131148009 |Bleeding (finding)| OR 29857009 |Chest pain (finding)| OR 43724002 |Chill (finding)| OR 82272006 |Common cold (disorder)| OR 9826008 |Conjunctivitis (disorder)| OR 49727002 |Cough (finding)| OR 3415004 |Cyanosis (finding)| OR 62315008 |Diarrhea (finding)| OR 3006004 |Disturbance of consciousness (finding)| OR 267036007 |Dyspnea (finding)| OR 271807003 |Eruption of skin (disorder)| OR 84229001 |Fatigue (finding)| OR 103001002 |Feeling feverish (finding)| OR 386661006 |Fever (finding)| OR 25064002 |Headache (finding)| OR 66857006 |Hemoptysis (finding)| OR 248567008 |Indrawing of ribs during respiration (finding)| OR 57676002 |Joint pain (finding)| OR 79890006 |Loss of appetite (finding)| OR 44169009 |Loss of sense of smell (finding)| OR 36955009 |Loss of taste (finding)| OR 30746006 |Lymphadenopathy (disorder)| OR 367391008 |Malaise (finding)| OR 68962001 |Muscle pain (finding)| OR 26544005 |Muscle weakness (finding)| OR 68235000 |Nasal congestion (finding)| OR 64531003 |Nasal discharge (finding)| OR 422587007 |Nausea (finding)| OR 44077006 |Numbness (finding)| OR 162397003 |Pain in throat (finding)| OR 38880002 |Rigor (finding)| OR 91175000 |Seizure (finding)| OR 46742003 |Skin ulcer (disorder)| OR 23924001 |Tight chest (finding)| OR 282145008 |Unable to walk (finding)| OR 422400008 |Vomiting (disorder)| OR 56018004 |Wheezing (finding)|`,
               value: '',
-              note: 'Multiple types of sex and/or gender are recorded in clinical practice, including biological sex and gender identity.'
+              isMultiple: true,
+              note: 'The first step in delivering comprehensive care is to undertake a clinical assessment. Please note that all published concepts referred to on this page are included in SNOMED International\'s Global Patient Set (GPS), which is available to be used internationally under the Creative Commons Attribution 4.0 International License. Please refer to http://snomed.org/covid-19 for more information.'
+            },
+            'CV19-ASS-SymptomsSubtypes' : {
+              title: 'Symptoms with subtypes',
+              type: 'autocomplete',
+              ecl: `<< 21522001 OR << 84387000 OR << 131148009 OR << 29857009 OR << 43724002 OR << 9826008 OR << 49727002 OR << 62315008 OR << 3006004 OR << 267036007 OR << 271807003 OR << 84229001 OR << 103001002 OR << 386661006 OR << 25064002 OR << 66857006 OR << 248567008 OR << 57676002 OR << 79890006 OR << 44169009 OR << 36955009 OR << 30746006 OR << 367391008 OR << 68962001 OR << 68235000 OR << 64531003 OR << 422587007 OR << 162397003 OR << 38880002 OR << 91175000 OR << 46742003 OR << 282145008 OR << 422400008 OR << 56018004 OR << 3415004 OR << 82272006 OR <<• 23924001 OR << 44077006 OR << 26544005`,
+              value: '',
+              // isMultiple: true,
+              note: 'If the implementation uses a terminology server, the binding can be implemented including all subtypes of the selected Symptoms codes.'
+            },
+            'CV19-ASS-Severity' : {
+              title: 'Severity',
+              type: 'dropdown',
+              ecl: `<< 272141005 |Severities (qualifier value)|`,
+              value: '',
+              note: 'Severity represents the quality of the condition - for example,  24484000 |Severe (severity modifier) (qualifier value)|. Severity may be recorded for each symptom, or as a general statement of their disease state.'
+            },
+            'CV19-ASS-ClinicalMeasurements' : {
+              title: 'Clinical Measurements',
+              type: 'dropdown',
+              ecl: `413384008 |Ability to perform cognitive activity (observable entity)| OR 442476006 |Arterial oxygen saturation (observable entity)| OR 386725007 |Body temperature (observable entity)| OR 75367002 |Blood pressure (observable entity)| OR 248592006 |Character of cough (observable entity)| OR 364533002 |Color of skin (observable entity)| OR 709017009 |Compliance behavior to safety precaution (observable entity)| OR 263731006 |Coughing (observable entity)| OR 271626009 |Depth of respiration (observable entity)| OR 226379006 |Food intake (observable entity)| OR 364075005 |Heart rate (observable entity)| OR 103228002 |Hemoglobin saturation with oxygen (observable entity)| OR 6942003 |Level of consciousness (observable entity)| OR 440398005 |Level of fatigue (observable entity)| OR 405161002 |Pain level (observable entity)| OR 248750004 |Peripheral blood flow (observable entity)| OR 431314004 |Peripheral oxygen saturation (observable entity)| OR 8499008 |Pulse, function (observable entity)| OR 248565000 |Respiratory effort (observable entity)| OR 86290005 |Respiratory rate (observable entity)| OR 248582003 |Rhythm of respiration (observable entity)| OR 247433003 |Skin elasticity (observable entity)| OR 248598005 |Sputum volume (observable entity)| OR 442349007 |Venous oxygen saturation (observable entity)|`,
+              value: '',
+              note: 'Clinical measurements involve the performance of physiological tests to diagnose and refine therapeutic management of an already established disease.'
+            },
+            'CV19-ASS-ClinicalMeasurementsSubtypes' : {
+              title: 'Clinical Measurements with subtypes',
+              type: 'autocomplete',
+              ecl: `<< 413384008 |Ability to perform cognitive activity (observable entity)| OR << 442476006 |Arterial oxygen saturation (observable entity)| OR << 386725007 |Body temperature (observable entity)| OR << 75367002 |Blood pressure (observable entity)| OR << 248592006 |Character of cough (observable entity)| OR << 364533002 |ColOR << of skin (observable entity)| OR << 709017009 |Compliance behaviOR << to safety precaution (observable entity)| OR << 263731006 |Coughing (observable entity)| OR << 271626009 |Depth of respiration (observable entity)| OR << 226379006 |Food intake (observable entity)| OR << 364075005 |Heart rate (observable entity)| OR << 103228002 |Hemoglobin saturation with oxygen (observable entity)| OR << 6942003 |Level of consciousness (observable entity)| OR << 440398005 |Level of fatigue (observable entity)| OR << 405161002 |Pain level (observable entity)| OR << 248750004 |Peripheral blood flow (observable entity)| OR << 431314004 |Peripheral oxygen saturation (observable entity)| OR << 8499008 |Pulse, function (observable entity)| OR << 248565000 |Respiratory effort (observable entity)| OR << 86290005 |Respiratory rate (observable entity)| OR << 248582003 |Rhythm of respiration (observable entity)| OR << 247433003 |Skin elasticity (observable entity)| OR << 248598005 |Sputum volume (observable entity)| OR << 442349007 |Venous oxygen saturation (observable entity)|`,
+              value: '',
+              note: 'If the implementation uses a terminology server, the binding can be implemented including all subtypes of the selected Clinical Measurements codes.'
+            },
+            'CV19-ASS-ClinicalExaminationFindings' : {
+              title: 'Clinical Examination Findings',
+              type: 'dropdown',
+              ecl: ` 20262006 OR 77427003 OR 288848001 OR 371632003 OR 193894004 OR 443371007 OR 126664009 OR 442646005 OR 419045004 OR 274710003 OR 91175000 OR 271823003 OR 288849009 OR  58840004 OR  9763007 OR  386661006 OR  75252003 OR  3424008 OR 70944005 OR 67750007`,
+              value: '',
+              note: 'Clinical examination findings are the result of measuring, questioning, evaluating, or otherwise examining a patient in healthcare. The following clinical findings are positive or negative indications that signs are present in a COVID-19 patient.'
+            },
+            'CV19-ASS-ClinicalExaminationFindingsSubtypes' : {
+              title: 'Clinical Examination Findings with subtypes',
+              type: 'autocomplete',
+              ecl: `<< 20262006 OR <<77427003 OR <<288848001 OR <<371632003 OR <<193894004 OR <<443371007 OR <<126664009 OR <<442646005 OR <<419045004 OR <<274710003 OR <<91175000 OR <<271823003 OR <<288849009 OR << 58840004 OR << 9763007 OR << 386661006 OR << 75252003 OR << 3424008 OR <<70944005 OR <<67750007`,
+              value: '',
+              note: 'If the implementation uses a terminology server, the binding can be implemented including all subtypes of the selected Clinical Examination codes.'
+            },
+            'CV19-ASS-Diagnosis' : {
+              title: 'Diagnosis',
+              type: 'radiobutton',
+              ecl: `1119302008 OR 189486241000119100 OR 840539006 OR 688232241000119100 OR 840544004`,
+              value: '',
+              note: 'A diagnosis is the identification of the nature of the illness, based on an examination of the symptoms, observations, measurements, test results and other investigation results. The following subset includes a range of diagnoses directly related to COVID-19.'
+            },
+            'CV19-ASS-DiagnosisPresentCertainty' : {
+              title: 'Diagnosis Present Certainty',
+              type: 'radiobutton',
+              ecl: `410605003 OR 410592001 OR 415684004`,
+              value: '',
+              note: 'To represent the certainty of a positive COVID-19 diagnosis, the following subset may be used in conjunction with a diagnosis of  840539006 |COVID-19|.'
+            },
+            'CV19-ASS-DiagnosisAbsentCertainty' : {
+              title: 'Diagnosis Absent Certainty',
+              type: 'radiobutton',
+              ecl: `410594000 OR 410593006`,
+              value: '',
+              note: 'To represent the certainty of the absence of COVID-19, the following subset may be used in conjunction with a diagnosis of  688232241000119100 |Disease caused by severe acute respiratory syndrome coronavirus 2 absent (situation)|.'
+            },
+            'CV19-ASS-ClinicalHistory' : {
+              title: 'Clinical History',
+              type: 'dropdown',
+              ecl: `292508471000119105`,
+              value: '',
+              note: 'The clinical history concepts are used to record information gained by a physician by asking specific questions, either of the patient or of other people who know the person and can give suitable information, with the aim of obtaining information useful in formulating a diagnosis and providing medical care to the patient.'
+            },
+            'CV19-ASS-SecondaryConditionsAndComplications' : {
+              title: 'Secondary Conditions and Complications',
+              type: 'dropdown',
+              ecl: `138389411000119105 OR 870590002 OR 870589006 OR 373895009 OR 67782005 OR 674814021000119106 OR 64779008 OR 119731000146105 OR 62914000 OR 1119304009 OR 119741000146102 OR 710027002 OR 419099009 OR 128053003 OR 34095006 OR 67406007 OR 3006004 OR 119981000146107 OR 1240561000000108 OR 119751000146104 OR 25374005 OR 56265001 OR 80394007 OR 389086002 OR 70944005 OR 1240541000000107 OR 90708001 OR 880529761000119102 OR 866151004 OR 59455009 OR 57653000 OR 1240531000000103 OR 1240521000000100 OR 183676005 OR 882784691000119100 OR 1119303003 OR 870591003 OR 302846007 OR 308906005 OR 91302008 OR 870588003 OR 76571007 OR 415623008 OR 238149007 OR 866152006 OR 429340002 OR 75570004 OR 1017214008`,
+              value: '',
+              note: `A secondary condition is any additional health condition that occurs as a result of the natural progression or expected outcome of the primary condition. A complication is "a disorder caused by another disorder, procedure or event, which is not a natural progression or expected outcome of its cause 5.`
+            },
+            'CV19-ASS-SecondaryConditionsAndComplicationsSubtypes' : {
+              title: 'Secondary Conditions and Complications with subtypes',
+              type: 'autocomplete',
+              ecl: `<< 138389411000119105 OR << 870590002 OR << 870589006 OR << 373895009 OR << 67782005 OR << 674814021000119106 OR << 64779008 OR << 119731000146105 OR << 62914000 OR << 1119304009 OR << 119741000146102 OR << 710027002 OR << 419099009 OR << 128053003 OR << 34095006 OR << 67406007 OR << 3006004 OR << 119981000146107 OR << 1240561000000108 OR << 119751000146104 OR << 25374005 OR << 56265001 OR << 80394007 OR << 389086002 OR << 70944005 OR << 1240541000000107 OR << 90708001 OR << 880529761000119102 OR << 866151004 OR << 59455009 OR << 57653000 OR << 1240531000000103 OR << 1240521000000100 OR << 183676005 OR << 882784691000119100 OR << 1119303003 OR << 870591003 OR << 302846007 OR << 308906005 OR << 91302008 OR << 870588003 OR << 76571007 OR << 415623008 OR << 238149007 OR << 866152006 OR << 429340002 OR << 75570004 OR << 1017214008`,
+              value: '',
+              note: `If the implementation uses a terminology server, the binding can be implemented including all subtypes of the selected Secondary Conditions and Complications codes.`
+            },
+            'CV19-ASS-RiskFactors' : {
+              title: 'Risk Factors',
+              type: 'dropdown',
+              ecl: `78648007 OR 27624003 OR 49601007 OR 414029004 OR 235856003 OR 118940003 OR 50043002 OR 8517006 OR 80141007 OR 107921000119107 OR 90708001 OR 363346000 OR 75934005 OR 414825006 OR 414915002 OR 370388006 OR 370391006 OR 77386006 OR 77176002`,
+              value: '',
+              note: `A secondary condition is any additional health condition that occurs as a result of the natural progression or expected outcome of the primary condition. A complication is "a disorder caused by another disorder, procedure or event, which is not a natural progression or expected outcome of its cause 5.`
+            },
+            'CV19-ASS-RiskFactorsSubtypes' : {
+              title: 'Risk Factors with subtypes',
+              type: 'autocomplete',
+              ecl: `<< 78648007 OR << 27624003 OR << 49601007 OR << 414029004 OR << 235856003 OR << 118940003 OR << 50043002 OR << 8517006 OR << 80141007 OR << 107921000119107 OR << 90708001 OR << 363346000 OR << 75934005 OR << 414825006 OR << 414915002 OR << 370388006 OR << 370391006 OR << 77386006 OR << 77176002`,
+              value: '',
+              note: `If the implementation uses a terminology server, the binding can be implemented including all subtypes of the selected Secondary Conditions and Complications codes.`
             }
           }
         },

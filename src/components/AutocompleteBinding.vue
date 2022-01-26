@@ -8,6 +8,7 @@
         no-data-text="Type at least 3 characters to search..."
         cache-items
         clearable
+        :multiple="binding.isMultiple == true"
     ></v-autocomplete>
 </template>
 <script>

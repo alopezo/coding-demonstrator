@@ -13,7 +13,7 @@
           <p class="body-1 font-weight-light" v-html="addLinks(binding.note)"></p>
         </v-col>
         <v-col cols="6" md="6" class="text-right">
-          <v-chip class="text-capitalize" color="amber darken-1" text-color="white">{{ binding.type }}</v-chip>
+          <v-chip class="text-capitalize" color="amber darken-1" text-color="white">{{ 'Demo UI: ' + binding.type }}</v-chip>
           <ConceptsListDialog :binding='binding' />
           <AutocompleteBinding :binding='binding' v-if="binding.type == 'autocomplete'"/>
           <DropdownBinding :binding='binding' v-if="binding.type == 'dropdown'"/>
@@ -23,7 +23,6 @@
     </v-container>
   </v-form>
 </template>
-
 <script>
   import AutocompleteBinding from './AutocompleteBinding.vue'
   import DropdownBinding from './DropdownBinding.vue'

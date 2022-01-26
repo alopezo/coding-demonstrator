@@ -21,10 +21,18 @@
             </v-card-title>
 
             <v-card-text style="height: 800px;">
-                <v-subheader>ECL</v-subheader>
+                <h4 class="my-5">ECL</h4>
+                <v-btn
+                    icon
+                    color="primary"
+                    style="float: right;"
+                    @click="copy"
+                >
+                    <v-icon>mdi-content-copy</v-icon>
+                </v-btn>
                 <pre class="mx-4">{{ binding.ecl }}</pre>
+                <h4 class="my-5">MEMBERS  ({{ total }})</h4>
                 <v-list dense>
-                    <v-subheader>MEMBERS  ({{ total }})</v-subheader>
                     <v-list-item-group
                         v-model="selectedItem"
                         color="primary"
@@ -55,7 +63,11 @@
         </v-card>
     </v-dialog>
 </template>
-
+<style scoped>
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+}
+</style>
 <script>
   import axios from "axios";
 
@@ -82,6 +94,11 @@
                 this.items = response.data.items;
                 this.total = response.data.total;
             })
+        },
+        methods: {
+            copy() {
+                navigator.clipboard.writeText(this.binding.ecl.replace(/\s\s+/g, ' '));
+            }
         }
     }
 </script>
