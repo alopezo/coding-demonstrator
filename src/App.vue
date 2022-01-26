@@ -18,8 +18,16 @@
         <h1>COVID-19 Coding Demonstrator</h1>
       </div>
       <v-spacer></v-spacer>
-      <v-btn color="success" @click="dialog = false">
-          <v-icon right dark class="mr-4">mdi-cloud-download</v-icon>Export ECL List 
+      <v-btn color="success">
+          <vue-excel-xlsx
+            :data="bindings"
+            :columns="columns"
+            :file-type="'xlsx'"
+            :file-name="'ecl-export'"
+            :sheet-name="'sheet1'"
+            >
+            <v-icon right dark class="mr-4">mdi-cloud-download</v-icon>Export ECL List
+          </vue-excel-xlsx>
       </v-btn>
     </v-app-bar>
 
@@ -30,14 +38,17 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
 import MainTabs from './components/MainTabs.vue';
+
+import VueExcelXlsx from "vue-excel-xlsx";
+import Vue from "vue";
+
+Vue.use(VueExcelXlsx);
 
 export default {
   name: 'App',
 
   components: {
-    // HelloWorld,
     MainTabs,
   },
   mounted() {
@@ -50,6 +61,20 @@ export default {
   },
   data: () => ({
     bindings: [],
+    columns : [
+                    {
+                        label: "Section",
+                        field: "section",
+                    },
+                    {
+                        label: "Title",
+                        field: "title",
+                    },
+                    {
+                        label: "ECL",
+                        field: "ecl",
+                    }
+                ],
     sections: {
         'CV19-PFD': {
           title: 'Provider and Facility Details',
