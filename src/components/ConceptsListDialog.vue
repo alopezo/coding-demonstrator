@@ -33,9 +33,6 @@
                         v-for="(item, i) in items"
                         :key="i"
                         >
-                        <!-- <v-list-item-icon>
-                            <v-icon v-text="item.icon"></v-icon>
-                        </v-list-item-icon> -->
                             <v-list-item-content>
                                 <v-list-item-title v-text="item.fsn.term"></v-list-item-title>
                                 <v-list-item-subtitle>SCTID: {{ item.id }}</v-list-item-subtitle>
@@ -55,22 +52,6 @@
                 </v-list>
             </v-card-text>
             <v-divider></v-divider>
-
-            <!-- <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="success" @click="dialog = false">
-                <v-icon right dark>mdi-cloud-download</v-icon> RF2 
-            </v-btn>
-            <v-btn color="success" @click="dialog = false">
-                <v-icon right dark>mdi-cloud-download</v-icon> RF2 + FSN
-            </v-btn>
-            <v-btn color="success" @click="dialog = false">
-                <v-icon right dark>mdi-cloud-download</v-icon> RF2 + PT
-            </v-btn>
-            <v-btn color="primary" @click="dialog = false" class="ml-8">
-                Close
-            </v-btn>
-            </v-card-actions> -->
         </v-card>
     </v-dialog>
 </template>

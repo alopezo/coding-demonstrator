@@ -26,7 +26,7 @@
             :file-name="'ecl-export'"
             :sheet-name="'sheet1'"
             >
-            <v-icon right dark class="mr-4">mdi-cloud-download</v-icon>Export ECL List
+            <v-icon right dark class="mr-4">mdi-cloud-download</v-icon>EXPORT BINDINGS
           </vue-excel-xlsx>
       </v-btn>
     </v-app-bar>
