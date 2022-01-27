@@ -38,7 +38,7 @@
     methods: {
       querySelections (v) {
         this.loading = true;
-        var queryString = `https://browser.ihtsdotools.org/snowstorm/snomed-ct/MAIN/concepts?activeFilter=true&term=${v}&
+        var queryString = `${this.$snowstormBase}/${this.$snowstormBranch}/concepts?activeFilter=true&term=${v}&
                             termActive=true&language=en&offset=0&limit=50&ecl=${encodeURIComponent(this.binding.ecl)}`
         axios
           .get(queryString)
