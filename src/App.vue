@@ -60,15 +60,14 @@
               Edition
             </v-list-item-title>
             <v-list-item-subtitle>
-              International Edition
+              Int. Edition
             </v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
             <v-list-item-title>
               Version
             </v-list-item-title>
-            <v-list-item-subtitle>
-              20210731
+            <v-list-item-subtitle v-text="$codeSystemVersion">
             </v-list-item-subtitle>
           </v-list-item>
         </v-list>
@@ -103,7 +102,8 @@ export default {
       }
     }
     Vue.prototype.$snowstormBase = 'https://snowstorm.ihtsdotools.org/snowstorm/snomed-ct';
-    Vue.prototype.$snowstormBranch = 'MAIN';
+    Vue.prototype.$codeSystemVersion = '2021-07-31';
+    Vue.prototype.$snowstormBranch = `MAIN/${this.$codeSystemVersion}`;
   },
   methods: {
     goToGithub() {
